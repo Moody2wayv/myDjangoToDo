@@ -49,6 +49,18 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+] 
+import sphinx
+from sphinx.ext import autodoc
+
+
+extension = [
+    autodoc,
+    
+] 
+
+autodoc_mock_imports = [
+    'django','TodoList.tasks'
 ]
 
 ROOT_URLCONF = 'TodoList.urls'

@@ -1,8 +1,9 @@
 import os
-import sys 
+import sys
+import django
 sys.path.insert(0, os.path.abspath('..'))
-
-
+os.environ['DJANGO_SETTINGS_MODULE'] = 'TodoList.settings'
+django.setup()
 
 # Configuration file for the Sphinx documentation builder.
 #
@@ -12,15 +13,17 @@ sys.path.insert(0, os.path.abspath('..'))
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'To-do List Documentation'
+project = 'To-do List'
 copyright = '2024, Mahmood Chalamanda'
 author = 'Mahmood Chalamanda'
-release = '00.00.01'
+release = '1.0'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = []
+extensions = [
+    'sphinx.ext.autodoc'
+]
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']

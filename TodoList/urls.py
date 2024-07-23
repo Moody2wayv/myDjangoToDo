@@ -22,6 +22,3 @@ urlpatterns = [
     path('tasks/', include('tasks.urls')),
     path('accounts/', include('django.contrib.auth.urls')),  # for logging in and logout
 ] 
-
-
-

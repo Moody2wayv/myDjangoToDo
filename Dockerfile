@@ -2,10 +2,10 @@
 FROM python:3.10-slim
 
 # Set the working directory in the container
-WORKDIR /app
+WORKDIR /usr/src/app
 
-# Copy the current directory contents into the container at /app
-COPY . /app
+# Copy the current directory contents into the container at /usr/src/app
+COPY . .
 
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
@@ -14,7 +14,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 8000
 
 # Define environment variable
-ENV NAME World
+ENV DJANGO_SETTINGS_MODULE=TodoList.settings
 
-# Run manage.py when the container launches
+# Run the command to start the Django server
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+
